@@ -10,13 +10,13 @@
   .el-carousel__item
 
     &:nth-of-type(1)
-      background-image: url("1.jpg")
+      background-image: url("../assets/img/1.jpg")
     &:nth-of-type(2)
-      background-image: url("2.jpg")
+      background-image: url("../assets/img/2.jpg")
     &:nth-of-type(3)
-      background-image: url("3.jpg")
+      background-image: url("../assets/img/3.jpg")
     &:nth-of-type(4)
-      background-image: url("4.jpg")
+      background-image: url("../assets/img/4.jpg")
     h3
       color: #475669
       font-size: 14px
