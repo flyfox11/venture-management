@@ -2,7 +2,9 @@
   <div id="app">
     <img src="./assets/logo.png">
     <card></card>
-    <!--<router-view></router-view>
+    <!--
+
+    <keep-alive><router-view></router-view></keep-alive>
     <h2 v-text="name+'作品'"></h2>
     <el-button>默认按钮</el-button>
     <el-button type="primary">主要按钮</el-button>
