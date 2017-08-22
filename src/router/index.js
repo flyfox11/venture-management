@@ -1,16 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-
+import hello from '../components/hello'
+import Login from '../components/Login'
 Vue.use(Router)
 
 export default new Router({
   linkActiveClass: 'active',
+  mode: 'history',
   routes: [
+    { path: '/',
+      redirect: '/login'
+    },
     {
-      path: '/',
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/hello',
       name: 'Hello',
-      component: Hello
+      component: hello
     }
   ]
 })

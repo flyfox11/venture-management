@@ -1,0 +1,93 @@
+<template>
+  <div id="app" >
+    <div style="background-color: #707070">
+      <div class="container" style="width: 600px">
+        <div class="card card-user">
+          <div class="image">
+            <img src="../assets/img/background.jpg" alt="..."/>
+          </div>
+          <div class="content">
+            <div class="author">
+              <img class="avatar border-white" src="../assets/img/face.jpg" alt="..."/>
+              <h4 class="title">风控管理系统<br/>
+                <a href="#">
+                  <small>@nuoyuan.com.cn</small>
+                </a>
+              </h4>
+            </div>
+            <br>
+            <form id="defaultForm"  class="form-horizontal"
+                  style="width: 400px;margin-left: 75px">
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="userName" name="real_name" v-model="user.name" placeholder="用户名"/>
+                  <span class="help-block" id="userNameMessage"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <input type="password" class="form-control" id="password" name="pwd" v-model="user.password" placeholder="密码"/>
+                  <span class="help-block passwordMessage"/>
+                </div>
+              </div>
+              <div class="form-group line_input_group">
+                <div class="col-lg-12">
+                </div>
+                <div class="form-group text-center">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary" @click="loginAction">登录</button>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
+
+<script type="text/ecmascript-6">
+  import api from 'fetch/api';
+  export default {
+    name: 'app',
+    data () {
+      return{
+        user:{name:'',password:''},
+        msg:''
+      }
+    },
+    computed:{
+    },
+    methods:{
+      loginAction:function () {
+        api.Login(this.user)
+          .then(res => {
+            //this.msg=res.result;
+            if(res.code=='01'){
+              this.$router.replace('/hello');
+            }else{
+              this.$alert(res.result, '提示', {
+                confirmButtonText: '确定'
+              });
+            }
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+    }
+
+  }
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus">
+  #app
+    font-family 'Avenir', Helvetica, Arial, sans-serif
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
+    .card
+      margin: 70px 0;
+</style>

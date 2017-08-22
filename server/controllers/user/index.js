@@ -17,7 +17,32 @@ module.exports = {
       res.json(body);
     }
   },
-  detail:function (req,res,next) {
-    res.json('这里是用户详情!');
-  }
+  login: async function (req, res, next) {
+    var body={code:'01',result:''};
+    try {
+      var condition = {
+        attributes:['name','password','crealname'],
+        where: {
+          name: req.body.name
+        }
+      }
+      var user = await _model.findOne(userSequelize, condition);
+      if (!!user) {
+        if (req.body.password === user.password) {
+          body.result='登录成功';//user;
+        } else {
+          body.code='02';
+          body.result='密码输入有误';
+        }
+      } else {
+        body.code='02';
+        body.result='用户不存在';
+      }
+    } catch (e) {
+      body.code='02';
+      body.result=e.message;
+    }finally {
+      res.json(body);
+    }
+  },
 }

@@ -1,8 +1,7 @@
 require('./check-versions')()
-const router=require('../server/routes');
+
 var config = require('../config');
-var session = require('express-session');
-var bodyParser = require('body-parser');
+
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
@@ -23,22 +22,7 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express();
-// 將路由套用至應用程式
-app.use('/api/v1', router);
-//body 解析
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-//session设置
-app.use(session({
-    secret: 'vue',
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 30 * 60 * 1000  //session过期时间
-    },
-    name: 'vue-project'
-  }
-));
+
 
 
 
