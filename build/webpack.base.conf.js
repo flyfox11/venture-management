@@ -25,6 +25,7 @@ module.exports = {
       '@': resolve('src'),
       'fetch': path.resolve(__dirname, '../src/fetch'),
       'components': path.resolve(__dirname, '../src/components'),
+      'pages': path.resolve(__dirname, '../src/pages'),
       'img':path.resolve(__dirname, '../src/assets/img'),
     }
   },

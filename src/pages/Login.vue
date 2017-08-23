@@ -1,7 +1,7 @@
 <template>
   <div id="app" >
-    <div style="background-color: #707070">
-      <div class="container" style="width: 600px">
+    <div>
+      <div class="container">
         <div class="card card-user">
           <div class="image">
             <img src="../assets/img/background.jpg" alt="..."/>
@@ -16,8 +16,7 @@
               </h4>
             </div>
             <br>
-            <form id="defaultForm"  class="form-horizontal"
-                  style="width: 400px;margin-left: 75px">
+            <form id="defaultForm"  class="form-horizontal">
               <div class="form-group">
                 <div class="col-lg-12">
                   <input type="text" class="form-control" id="userName" name="real_name" v-model="user.name" placeholder="用户名"/>
@@ -88,6 +87,13 @@
     font-family 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    .card
-      margin: 70px 0;
+    &>div
+      background-color: #707070
+      .container
+        width: 600px
+        .card
+          margin: 70px 0
+          .form-horizontal
+            width: 400px
+            margin-left: 75px
 </style>
