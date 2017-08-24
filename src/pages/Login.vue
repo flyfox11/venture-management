@@ -66,7 +66,9 @@
           .then(res => {
             //this.msg=res.result;
             if(res.code=='01'){
-              this.$router.replace('/hello');
+              /*this.$router.replace('/readme');*/
+              window.location='http://localhost:8080/readme/';
+              localStorage.setItem('ms_username',res.result.crealname);
             }else{
               this.$alert(res.result, '提示', {
                 confirmButtonText: '确定'
@@ -83,6 +85,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  @import '../../static/bootstrap/css/paper-dashboard.css';
+  @import '../../static/bootstrap/css/bootstrap.min.css';
   #app
     font-family 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing antialiased

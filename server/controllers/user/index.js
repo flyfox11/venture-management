@@ -29,7 +29,7 @@ module.exports = {
       var user = await _model.findOne(userSequelize, condition);
       if (!!user) {
         if (req.body.password === user.password) {
-          body.result='登录成功';//user;
+          body.result=user;//user;
         } else {
           body.code='02';
           body.result='密码输入有误';

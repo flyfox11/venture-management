@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import hello from 'components/hello'
 import Login from 'pages/Login'
+import ProjectManager from 'pages/ProjectManager'
+import LimitManager from 'pages/LimitManager'
 Vue.use(Router)
 
 export default new Router({
@@ -17,9 +18,25 @@ export default new Router({
       component: Login
     },
     {
-      path: '/hello',
-      name: 'Hello',
-      component: hello
-    }
+      path: '/readme',
+      component: resolve => require(['../components/Home.vue'], resolve),
+      children:[
+        { path: '/',
+          redirect: '/project'
+        },
+        {
+          path: '/project',
+          component: ProjectManager
+        },
+        {
+          path: '/limit',
+          component: LimitManager
+        },
+        {
+          path: '/drag',
+          component: resolve => require(['../pages/DragList.vue'], resolve)    // 拖拽列表组件
+        }
+      ]
+    },
   ]
 })
