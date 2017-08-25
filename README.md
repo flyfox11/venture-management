@@ -8,15 +8,15 @@ vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 ### node技术
 nodejs + express4 + session + sequelize +mysql
 
-## Build Setup
+## 项目运行
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 启动vue前端项目
 npm run dev
 
-# build for production with minification
-npm run build
+# 启动node后端项目
+npm run start
 
