@@ -8,7 +8,7 @@ vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 * ### node技术
 nodejs + express4 + session + sequelize +mysql
 
-# 效果演示
+## 效果演示
 
 
 ### 图1
