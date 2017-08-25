@@ -14,10 +14,11 @@
         </div>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import '../../static/css/theme-green/index-purple.css';
     import "../../static/css/main.css";
     import "../../static/css/theme-green/color-purple.css";   /*紫色主题*/
+    import { mapGetters } from 'vuex';
     export default {
         data() {
             return {
@@ -31,7 +32,10 @@
             username(){
                 let username = localStorage.getItem('ms_username');
                 return username ? username : this.name;
-            }
+            },
+           /* ...mapGetters([
+              'showUserName',   测试vuex
+            ])*/
         },
         methods:{
             handleCommand(command) {

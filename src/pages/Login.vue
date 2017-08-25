@@ -62,6 +62,8 @@
     },
     methods:{
       loginAction:function () {
+       /* this.user.router=this.$router; 测试vuex
+        this.$store.dispatch('SAVE_NAME', this.user)*/
         api.Login(this.user)
           .then(res => {
             //this.msg=res.result;
