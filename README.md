@@ -8,6 +8,16 @@ vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 ### node技术
 nodejs + express4 + session + sequelize +mysql
 
+# 效果演示
+
+
+### 图1
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/1.png)
+
+
+### 图2
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/2.png)
+
 ## 项目运行
 
 ``` bash
@@ -21,13 +31,4 @@ npm run dev
 npm run start
 
 
-# 效果演示
-
-
-### 图1
-![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/1.png)
-
-
-### 图2
-![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/2.png)
 
