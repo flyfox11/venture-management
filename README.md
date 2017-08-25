@@ -1,6 +1,6 @@
-# y
+# 一个包含vue和node的全栈项目
 
-> A Vue.js project
+> A Vue.js project for vue and node
 
 ## Build Setup
 
