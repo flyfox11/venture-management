@@ -20,3 +20,15 @@ npm run dev
 # 启动node后端项目
 npm run start
 
+
+# 效果演示
+
+
+### 图1
+
+<img src="https://github.com/zhuangyanyan/my-vue/static/img/1.png" width="682" height="348"/>
+
+### 图2
+
+<img src="https://github.com/zhuangyanyan/my-vue/static/img/2.png" width="682" height="348"/>
+
