@@ -14,4 +14,5 @@ router.use(function(req, res, next) {
 
 const commonRouter = require('./common')(router);
 const userRouter = require('./user')(router);
+const limitRouter = require('./limit')(router);
 module.exports=router;

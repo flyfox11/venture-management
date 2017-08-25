@@ -56,7 +56,8 @@
         },
         methods:{
             onSubmit() {
-                this.$message.success('提交成功！');
+                /*this.$message.success('提交成功！');*/
+              this.$router.push('/limitList');
             }
         }
 

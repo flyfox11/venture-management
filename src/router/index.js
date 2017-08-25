@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from 'pages/Login'
 import ProjectManager from 'pages/ProjectManager'
 import LimitManager from 'pages/LimitManager'
+import limitList from 'pages/limitList'
 Vue.use(Router)
 
 export default new Router({
@@ -30,7 +31,11 @@ export default new Router({
         },
         {
           path: '/limit',
-          component: LimitManager
+          component: LimitManager,
+        },
+        {
+          path:'/limitList',
+          component:limitList
         },
         {
           path: '/drag',

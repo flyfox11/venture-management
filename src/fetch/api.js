@@ -62,6 +62,12 @@ export default {
      */
     Login(params) {
       return fetch('/login', params)
-    }
+    },
+    /**
+     * 用户列表
+     */
+    GetLimits(params) {
+      return fetch('/limits', params)
+    },
 
 }
