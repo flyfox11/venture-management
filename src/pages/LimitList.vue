@@ -44,10 +44,24 @@
             </el-table-column>
             <el-table-column
               label="额度调整"
-              >管理
+              >
+              <template scope="scope">
+                <a href="#">管理</a>
+              </template>
             </el-table-column>
 
           </el-table>
+        <div class="block">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="1"
+            :page-sizes="[100, 200, 300, 400]"
+            :page-size="100"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="400">
+          </el-pagination>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="额度台账" name="second">额度台账</el-tab-pane>
     </el-tabs>
@@ -110,5 +124,7 @@
       .cell
          word-break: keep-all
          white-space: nowrap
-
+  .el-pagination
+    margin: 20px 0 0
+    float: right
 </style>
