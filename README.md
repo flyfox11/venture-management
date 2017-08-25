@@ -2,6 +2,12 @@
 
 > A Vue.js project for vue and node
 
+## 技术栈
+###前端技术
+vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
+###node技术
+nodejs + express4 + session + sequelize +mysql
+
 ## Build Setup
 
 ``` bash
