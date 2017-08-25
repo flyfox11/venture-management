@@ -25,9 +25,9 @@ npm run start
 
 
 ### 图1
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/1.png)
 
-<img src="https://github.com/zhuangyanyan/my-vue/blob/master/screenshots/1.png" width="682" height="348"/>
 
 ### 图2
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/2.png)
 
-<img src="https://github.com/zhuangyanyan/my-vue/blob/master/screenshots/2.png" width="682" height="348"/>
