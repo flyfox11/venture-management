@@ -10,7 +10,8 @@ module.exports = {
   init:  async function (req, res) {
     var body={code:'01',result:''};
     try{
-      var current = req.body.current || 1;
+      var current = req.body.current_page || 1;
+      var page_size=req.body.page_size||10;
       var con = {
         include: [{
           model: cstBaseSequelize,
@@ -24,7 +25,7 @@ module.exports = {
           attributes: ['id', 'cst_credit_level'],
         }],
         attributes: ['id', 'company_id', 'available_credit', 'freezen_status',],
-        limit: [(current - 1) * 10, 10],
+        limit: [(current - 1) * page_size, +page_size],
       }
       var result = await _model.findAndCountAll(limitSequelize, con);
       body.result=result;

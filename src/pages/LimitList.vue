@@ -55,11 +55,11 @@
           <el-pagination
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page="1"
-            :page-sizes="[100, 200, 300, 400]"
-            :page-size="100"
+            :current-page="current_page"
+            :page-sizes="[6,10,15]"
+            :page-size="page_size"
             layout="total, sizes, prev, pager, next, jumper"
-            :total="400">
+            :total="total">
           </el-pagination>
         </div>
       </el-tab-pane>
@@ -74,47 +74,47 @@
       data () {
           return{
             activeTab: 'first',
-            tableData: [{
-              date: '2016-05-02',
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1518 弄'
-            }, {
-              date: '2016-05-04',
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1517 弄'
-            }, {
-              date: '2016-05-01',
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1519 弄'
-            }, {
-              date: '2016-05-03',
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1516 弄'
-            }]
+            tableData: [],
+            total:0,
+            page_size:10,
+            current_page:1,
           }
       },
       computed:{
       },
       methods:{
         handleClick(tab, event) {
-          console.log(tab, event);
+          //console.log(tab, event);
+        },
+        handleSizeChange(val) {
+          this.page_size=val;
+          this._getData(this.current_page,this.page_size);
+        },
+        handleCurrentChange(val) {
+          console.log(`当前页: ${val}`);
+          this.current_page=val;
+          this._getData(this.current_page,this.page_size);
+        },
+        _getData(current_page,page_size){
+          api.GetLimits({current_page,page_size})
+            .then(res => {
+              if(res.code=='01'){
+                this.tableData=res.result.rows;
+                this.total=res.result.count;
+              }else{
+                this.$alert(res.result, '提示', {
+                  confirmButtonText: '确定'
+                });
+              }
+            })
+            .catch(error => {
+              console.log(error)
+            });
         }
       },
       created() {
-        api.GetLimits({current:1})
-          .then(res => {
-            if(res.code=='01'){
-              this.tableData=res.result.rows;
-            }else{
-              this.$alert(res.result, '提示', {
-                confirmButtonText: '确定'
-              });
-            }
-          })
-          .catch(error => {
-            console.log(error)
-          });
-    },
+        this._getData(this.current_page,this.page_size)
+      },
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
