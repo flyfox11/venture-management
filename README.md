@@ -1,6 +1,6 @@
 # 一个包含vue和node的全栈项目
 
-> A Vue.js project for vue.js and node.js
+> A Vue.js project for vue.js and node.js,related to vuex,vue-router,express4,sequelize,stylus,axios,etc .
 
 ## 技术栈
 * ### 前端技术
