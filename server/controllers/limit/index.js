@@ -35,5 +35,37 @@ module.exports = {
     }finally {
       res.json(body);
     }
-  }
+  },
+  detail: async function (req, res, next) {
+    var body={code:'01',result:''};
+    try {
+      var id = req.body.id;
+      var condition = {
+        include: [{
+          model: cstBaseSequelize,
+          required: true,
+          as: 'base',
+          attributes: ['cst_full_name', 'credit_code', 'reg_person', 'reg_num', 'reg_amt', 'main_biz', 'create_date', 'worker_amt', 'industry_type', 'firms_nature', 'company_email', 'pid', 'checkin_date', 'address', 'open_blank', 'business_term_start', 'business_term_end', 'place_type'],
+        }, {
+          model: cstViceSequelize,
+          required: true,
+          as: 'vice',
+          attributes: ['cst_credit_level', 'credit_evaluate_date', 'credit_evaluate_date_out', 'credit_evaluate_org_out'],
+        }],
+        attributes: ['quotaId', 'company_id', 'freezen_status', 'approved_sum', 'already_used_amount', 'available_credit', 'credit_apply_create_time', 'credit_apply_expire_time', 'sys_credit'],
+        where: {quotaId: id}
+      }
+      var condition1 = {
+        attributes: ['legal_person_no', 'operator', 'operator_moblie_number', 'operator_person_no', 'operator_year'],
+        where: {company_id: id}
+      }
+      var result = await _model.findOne(limitSequelize, condition);
+      body.result=result;
+    } catch (e) {
+      body.code='02';
+      body.result=e.message;
+    }finally {
+      res.json(body);
+    }
+  },
 }

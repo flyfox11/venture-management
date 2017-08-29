@@ -46,7 +46,7 @@
               label="额度调整"
               >
               <template scope="scope">
-                <a href="#">管理</a>
+                <a :href="'limitDetail/'+tableData[scope.$index].company_id">管理 </a>
               </template>
             </el-table-column>
 
@@ -95,6 +95,9 @@
           this.current_page=val;
           this._getData(this.current_page,this.page_size);
         },
+        detailAction(index){
+          alert(index);
+        },
         _getData(current_page,page_size){
           api.GetLimits({current_page,page_size})
             .then(res => {
@@ -112,7 +115,7 @@
             });
         }
       },
-      created() {
+      created(){
         this._getData(this.current_page,this.page_size)
       },
   }

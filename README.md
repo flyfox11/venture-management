@@ -18,6 +18,10 @@ nodejs + express4 + session + sequelize +mysql
 ### 图2
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/2.png)
 
+
+### 图3
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/3.png)
+
 ## 项目运行
 
 ``` bash

@@ -24,7 +24,7 @@ app.use(session({
     name: 'vue-project'
   }
 ));
-// 將路由套用至應用程式
+// 将路由用至应用程式
 app.use('/api/v1', router);
 var httpServer = http.createServer(app);
 httpServer.listen(port, '0.0.0.0', function () {
@@ -35,8 +35,6 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-
-  // handle specific listen errors with friendly messages
   //处理特殊error 的友好信息
   switch (error.code) {
     case 'EACCES':

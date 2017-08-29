@@ -1,8 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
 
-//import * as _ from '../util/tool'
-
 // axios 配置
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -20,19 +18,16 @@ axios.interceptors.request.use((config) => {
     }
     return config;
 },(error) =>{
-     //_.toast("错误的传参", 'fail');
     return Promise.reject(error);
 });
 
 //返回状态判断
 axios.interceptors.response.use((res) =>{
     if(res.status!==200){
-         //_.toast(res.data.msg);
         return Promise.reject(res);
     }
     return res;
 }, (error) => {
-    //_.toast("网络异常", 'fail');
     return Promise.reject(error);
 });
 
@@ -64,10 +59,15 @@ export default {
       return fetch('/login', params)
     },
     /**
-     * 用户列表
+     * 额度列表
      */
     GetLimits(params) {
       return fetch('/limits', params)
     },
-
+    /**
+     * 额度详情
+     */
+    GetLimitDetail(params) {
+      return fetch('/limitDetail', params)
+    },
 }

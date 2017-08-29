@@ -4,6 +4,8 @@ import Login from 'pages/Login'
 import ProjectManager from 'pages/ProjectManager'
 import LimitManager from 'pages/LimitManager'
 import limitList from 'pages/limitList'
+import limitDetail from 'pages/limitDetail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -38,9 +40,13 @@ export default new Router({
           component:limitList
         },
         {
+          path:'/limitDetail/:id',
+          component: limitDetail
+        },
+        /*{
           path: '/drag',
           component: resolve => require(['../pages/DragList.vue'], resolve)    // 拖拽列表组件
-        }
+        }*/
       ]
     },
   ]
