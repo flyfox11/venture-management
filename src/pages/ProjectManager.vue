@@ -15,13 +15,13 @@
                     <el-input v-model="form.project_name"></el-input>
                 </el-form-item>
                 <el-form-item label="项目状态">
-                    <el-select v-model="form.region" placeholder="请选择">
-                        <el-option key="bbk" label="全部" value="a"></el-option>
-                        <el-option key="xtc" label="批准" value="xtc"></el-option>
-                        <el-option key="imoo" label="冻结" value="imoo"></el-option>
-                        <el-option key="z" label="终止" value="b"></el-option>
-                        <el-option key="x" label="过期" value="c"></el-option>
-                        <el-option key="y" label="待授信" value="d"></el-option>
+                    <el-select v-model="form.project_status" placeholder="请选择">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.code_value"
+                          :label="item.code_name"
+                          :value="item.code_value">
+                        </el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item>
@@ -34,17 +34,36 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import api from 'fetch/api';
     export default {
         data () {
             return{
+                options: [
+                {
+                  code_value: '',
+                  code_name: '全部'
+                }],
                 form: {
                     channel_name: '',
                     project_name: '',
-                    region: '',
+                    project_status: '',
                 }
             }
         },
-        computed:{
+        created(){
+          api.GetProjectStatus()
+            .then(res => {
+              if(res.code=='01'){
+                this.options=[{code_value: '', code_name: '全部'}].concat(res.result);
+              }else{
+                this.$alert(res.result, '提示', {
+                  confirmButtonText: '确定'
+                });
+              }
+            })
+            .catch(error => {
+              console.log(error)
+            });
         },
         methods:{
             onSubmit() {

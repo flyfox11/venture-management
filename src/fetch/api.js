@@ -13,7 +13,7 @@ axios.defaults.baseURL = 'http://localhost:8080/api/v1';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
     if(config.method  === 'post'){
-        config.data.user='hzf';
+        //config.data.user='hzf';
         config.data = qs.stringify(config.data);
     }
     return config;
@@ -69,5 +69,11 @@ export default {
      */
     GetLimitDetail(params) {
       return fetch('/limitDetail', params)
+    },
+    /**
+     * 项目状态列表
+     */
+    GetProjectStatus(params) {
+      return fetch('/project_status', params)
     },
 }
