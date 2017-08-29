@@ -1,4 +1,4 @@
-# 一个包含vue和node的全栈项目
+# 一个包含vuejs和nodejs的全栈项目
 
 > A Vue.js project for vue.js and node.js,related to vuex,vue-router,express4,sequelize,stylus,axios,etc .
 
