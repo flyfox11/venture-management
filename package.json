@@ -1,7 +1,7 @@
 {
-  "name": "y",
+  "name": "venture-management",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue.js project about venture-management",
   "author": "hzf",
   "private": true,
   "scripts": {

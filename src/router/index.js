@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from 'pages/Login'
 import ProjectManager from 'pages/ProjectManager'
+import ProjectList from 'pages/ProjectList'
 import LimitManager from 'pages/LimitManager'
-import limitList from 'pages/limitList'
-import limitDetail from 'pages/limitDetail'
+import LimitList from 'pages/LimitList'
+import LimitDetail from 'pages/LimitDetail'
 
 Vue.use(Router)
 
@@ -12,7 +13,8 @@ export default new Router({
   linkActiveClass: 'active',
   mode: 'history',
   routes: [
-    { path: '/',
+    {
+      path: '/',
       redirect: '/login'
     },
     {
@@ -32,16 +34,20 @@ export default new Router({
           component: ProjectManager
         },
         {
+          path:'/projectList',
+          component:ProjectList
+        },
+        {
           path: '/limit',
           component: LimitManager,
         },
         {
           path:'/limitList',
-          component:limitList
+          component:LimitList
         },
         {
           path:'/limitDetail/:id',
-          component: limitDetail
+          component: LimitDetail
         },
         /*{
           path: '/drag',

@@ -1,56 +1,16 @@
 <template>
   <div class="wrapper">
-    <!--额度列表页面-->
+    <!--项目列表页面-->
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
-      <el-tab-pane label="额度查询" name="first">
-          <el-table
-            :data="tableData"
-            border
-            stripe
-            style="width: 100%"
-            empty-text="数据空空"
-            height="400">
-            <el-table-column
-              prop="company_id"
-              label="统一社会信用代码"
-              width="180"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="base.cst_full_name"
-              label="企业名称"
-              width="250"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="vice.cst_credit_level"
-              label="信用等级"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="available_credit"
-              label="可用额度(元)"
-              width="120"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="freezen_status"
-              label="额度状态"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="base.worker_amt"
-              label="企业人数"
-              >
-            </el-table-column>
-            <el-table-column
-              label="额度调整"
-              >
-              <template scope="scope">
-                <a :href="'limitDetail/'+tableData[scope.$index].company_id">管理 </a>
-              </template>
-            </el-table-column>
-
+      <el-tab-pane label="项目查询" name="first">
+          <el-table :data="tableData" border stripe style="width: 100%" empty-text="数据空空" height="400">
+            <el-table-column prop="project.project_name" label="项目名称"></el-table-column>
+            <el-table-column prop="channel.name" label="合作渠道"></el-table-column>
+            <el-table-column prop="project.project_status" label="项目状态"></el-table-column>
+            <el-table-column prop="project.project_line_time" label="项目上线时间"></el-table-column>
+            <el-table-column prop="project.project_down_time" label="项目终止时间"></el-table-column>
+            <el-table-column prop="project.project_approved_sum" label="项目批准额度(元)"></el-table-column>
+            <el-table-column prop="project.project_available_credit" label="项目可用额度(元)"></el-table-column>
           </el-table>
         <div class="block">
           <el-pagination
@@ -64,7 +24,7 @@
           </el-pagination>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="额度台账" name="second">额度台账</el-tab-pane>
+
     </el-tabs>
   </div>
 </template>
@@ -81,20 +41,20 @@
             current_page:1,
           }
       },
-      computed:{
-      },
       methods:{
         handleClick(tab, event) {
           //console.log(tab, event);
         },
         handleSizeChange(val) {
           this.page_size=val;
-          this._getData(this.current_page,this.page_size);
+//          this._getData(this.current_page,this.page_size);
         },
         handleCurrentChange(val) {
-          console.log(`当前页: ${val}`);
           this.current_page=val;
-          this._getData(this.current_page,this.page_size);
+//          this._getData(this.current_page,this.page_size);
+        },
+        detailAction(index){
+          alert(index);
         },
         _getData(current_page,page_size){
           api.GetLimits({current_page,page_size,...this.$route.query})
@@ -114,7 +74,8 @@
         }
       },
       created(){
-        this._getData(this.current_page,this.page_size)
+//        this._getData(this.current_page,this.page_size)
+          console.log('数据是',this.$route.query);
       },
   }
 </script>

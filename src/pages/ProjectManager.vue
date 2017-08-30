@@ -67,7 +67,7 @@
         },
         methods:{
             onSubmit() {
-                this.$message.success('提交成功！');
+                this.$router.push({path:'/projectList',query:this.form});
             },
             onReset(){
               this.form={
