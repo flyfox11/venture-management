@@ -6,7 +6,7 @@
 * ### 前端技术
 vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 * ### node技术
-nodejs + express4 + session + sequelize +mysql
+nodejs + express4 + session + sequelize + mysql + lodash.js
 
 ## 效果演示
 
@@ -28,10 +28,10 @@ nodejs + express4 + session + sequelize +mysql
 # 安装依赖
 npm install
 
-# 启动vue前端项目
+# 启动vue前端项目(http://localhost:8080/...)
 npm run dev
 
-# 启动node后端项目
+# 启动node后端项目(http://localhost:8081/...)
 npm run start
 
 

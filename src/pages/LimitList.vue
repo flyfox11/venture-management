@@ -8,6 +8,7 @@
             border
             stripe
             style="width: 100%"
+            empty-text="数据空空"
             height="400">
             <el-table-column
               prop="company_id"
@@ -99,7 +100,7 @@
           alert(index);
         },
         _getData(current_page,page_size){
-          api.GetLimits({current_page,page_size})
+          api.GetLimits({current_page,page_size,...this.$route.query})
             .then(res => {
               if(res.code=='01'){
                 this.tableData=res.result.rows;

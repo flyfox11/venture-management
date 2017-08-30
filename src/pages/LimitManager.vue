@@ -19,10 +19,10 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="信用代码">
-                    <el-input v-model="form.channel_name"></el-input>
+                    <el-input v-model="form.credit_code"></el-input>
                 </el-form-item>
                 <el-form-item label="企业名称">
-                    <el-input v-model="form.project_name"></el-input>
+                    <el-input v-model="form.cst_full_name"></el-input>
                 </el-form-item>
                 <el-form-item label="额度状态">
                     <el-select v-model="form.limit_status" placeholder="请选择">
@@ -49,8 +49,8 @@
         data () {
             return{
                 form: {
-                    channel_name: '',
-                    project_name: '',
+                    credit_code: '',
+                    cst_full_name: '',
                     channel:'',
                     limit_status:'',
                 },
@@ -85,12 +85,12 @@
         methods:{
             onSubmit() {
                 /*this.$message.success('提交成功！');*/
-              this.$router.push('/limitList');
+              this.$router.push({path:'/limitList',query:this.form});
             },
             onReset(){
                 this.form={
-                    channel_name: '',
-                    project_name: '',
+                    credit_code: '',
+                    cst_full_name: '',
                     channel:'',
                     limit_status:'',
                 }
