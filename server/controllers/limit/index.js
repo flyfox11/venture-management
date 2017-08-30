@@ -5,6 +5,8 @@ const _model=require('../../models/action');
 const limitSequelize = require('../../models/index').t_quota;
 const cstBaseSequelize = require('../../models/index').t_cst_base_info;
 const cstViceSequelize = require('../../models/index').t_cst_vice_info;
+const channelSequelize = require('../../models/index').t_channel;
+const codeSequelize = require('../../models/index').t_code;
 module.exports = {
 
   init:  async function (req, res) {
@@ -68,4 +70,26 @@ module.exports = {
       res.json(body);
     }
   },
+  limit_manager: async function (req, res, next) {//额度管理查询  页面
+    var body={code:'01',result:''};
+    try {
+      var channelCondition= {
+        attributes:['channel_no','name'],
+      }
+      var codeCondition= {
+        attributes:['code_value','code_name'],
+        where: {
+          code_type_cd: 'LimitStatusCd'
+        }
+      }
+      var channelList = await _model.findAll(channelSequelize,channelCondition);
+      var status = await _model.findAll(codeSequelize, codeCondition);
+      body.result={channelList,status};
+    } catch (e) {
+      body.code='02';
+      body.result=e.message;
+    }finally {
+      res.json(body);
+    }
+  }
 }

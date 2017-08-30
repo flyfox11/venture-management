@@ -9,10 +9,13 @@
         <div class="query_container">
             <el-form ref="form" :model="form" label-width="80px">
                 <el-form-item label="所属渠道">
-                    <el-select v-model="form.region" placeholder="请选择">
-                        <el-option key="l" label="所有" value="l"></el-option>
-                        <el-option key="m" label="快塑" value="m"></el-option>
-                        <el-option key="n" label="爱游" value="n"></el-option>
+                    <el-select v-model="form.channel" placeholder="请选择">
+                        <el-option
+                                v-for="item in channel_options"
+                                :key="item.channel_no"
+                                :label="item.name"
+                                :value="item.channel_no">
+                        </el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="信用代码">
@@ -22,18 +25,18 @@
                     <el-input v-model="form.project_name"></el-input>
                 </el-form-item>
                 <el-form-item label="额度状态">
-                    <el-select v-model="form.region1" placeholder="请选择">
-                        <el-option key="bbk" label="全部" value="全部"></el-option>
-                        <el-option key="xtc" label="批准" value="批准"></el-option>
-                        <el-option key="imoo" label="冻结" value="冻结"></el-option>
-                        <el-option key="z" label="终止" value="终止"></el-option>
-                        <el-option key="x" label="过期" value="过期"></el-option>
-                        <el-option key="y" label="待授信" value="待授信"></el-option>
+                    <el-select v-model="form.limit_status" placeholder="请选择">
+                        <el-option
+                                v-for="item in limit_options"
+                                :key="item.code_value"
+                                :label="item.code_name"
+                                :value="item.code_value">
+                        </el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="onSubmit"><i class="iconfont icon-search"></i>查询</el-button>
-                    <el-button  class="cancel"><i class="iconfont icon-reset"></i>取消</el-button>
+                    <el-button  class="cancel" @click="onReset"><i class="iconfont icon-reset"></i>取消</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -41,23 +44,56 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import api from 'fetch/api';
     export default {
         data () {
             return{
                 form: {
                     channel_name: '',
                     project_name: '',
-                    region: '',
-                    region1:''
-                }
+                    channel:'',
+                    limit_status:'',
+                },
+                channel_options: [
+                    {
+                        code_value: '',
+                        code_name: '所有'
+                    }],
+                limit_options: [
+                    {
+                        code_value: '',
+                        code_name: '全部'
+                    }],
             }
         },
-        computed:{
+        created(){
+            api.GetLimitManager()
+                    .then(res => {
+                        if(res.code=='01'){
+                            this.channel_options=[{channel_no: '', name: '所有'}].concat(res.result.channelList);
+                            this.limit_options=[{code_value: '', code_name: '全部'}].concat(res.result.status);
+                        }else{
+                            this.$alert(res.result, '提示', {
+                                confirmButtonText: '确定'
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
         },
         methods:{
             onSubmit() {
                 /*this.$message.success('提交成功！');*/
               this.$router.push('/limitList');
+            },
+            onReset(){
+                this.form={
+                    channel_name: '',
+                    project_name: '',
+                    channel:'',
+                    limit_status:'',
+                }
             }
         }
 

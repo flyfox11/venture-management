@@ -59,6 +59,12 @@ export default {
       return fetch('/login', params)
     },
     /**
+     * 额度查询页面，下拉列表
+     */
+    GetLimitManager(params) {
+      return fetch('/limit_manager', params)
+    },
+    /**
      * 额度列表
      */
     GetLimits(params) {
@@ -76,4 +82,5 @@ export default {
     GetProjectStatus(params) {
       return fetch('/project_status', params)
     },
+    
 }

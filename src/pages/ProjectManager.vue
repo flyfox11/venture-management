@@ -26,7 +26,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="onSubmit"><i class="iconfont icon-search"></i>查询</el-button>
-                    <el-button  class="cancel"><i class="iconfont icon-reset"></i>取消</el-button>
+                    <el-button  class="cancel" @click="onReset"><i class="iconfont icon-reset"></i>取消</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -68,6 +68,13 @@
         methods:{
             onSubmit() {
                 this.$message.success('提交成功！');
+            },
+            onReset(){
+              this.form={
+                channel_name: '',
+                project_name: '',
+                project_status: ''
+              };
             }
         }
 
