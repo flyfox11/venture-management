@@ -3,7 +3,12 @@
     <!--项目列表页面-->
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
       <el-tab-pane label="项目查询" name="first">
-          <el-table :data="tableData" border stripe style="width: 100%" empty-text="数据空空" height="400">
+          <el-table :data="tableData" border stripe style="width: 100%" highlight-current-row empty-text="数据空空" height="400" @current-change="handleRowChange">
+            <el-table-column label="序号" width="65">
+                <template scope="scope">
+                    <span>{{page_size*(current_page-1)+scope.$index+1}}</span>
+                </template>
+            </el-table-column>
             <el-table-column prop="project.project_name" label="项目名称"></el-table-column>
             <el-table-column prop="channel.name" label="合作渠道"></el-table-column>
             <el-table-column  label="项目状态">
@@ -13,8 +18,8 @@
             </el-table-column>
             <el-table-column prop="project.project_line_time" label="项目上线时间"></el-table-column>
             <el-table-column prop="project.project_down_time" label="项目终止时间"></el-table-column>
-            <el-table-column prop="project.project_approved_sum" label="项目批准额度(元)"></el-table-column>
-            <el-table-column prop="project.project_available_credit" label="项目可用额度(元)"></el-table-column>
+            <el-table-column prop="project.project_approved_sum" label="项目批准额度"></el-table-column>
+            <el-table-column prop="project.project_available_credit" label="项目可用额度"></el-table-column>
           </el-table>
         <div class="block">
           <el-pagination
@@ -60,8 +65,9 @@
           this.current_page=val;
           this._getData(this.current_page,this.page_size);
         },
-        detailAction(index){
-          alert(index);
+        handleRowChange(val) {
+            //console.log('地方大幅度',val)
+          //this.currentRow = val;
         },
         _getData(current_page,page_size){
           api.GetProjects({current_page,page_size,...this.$route.query})
@@ -94,6 +100,11 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   .el-table
+    .el-table__body
+      tr
+        &.current-row>td
+           background: #8D34AA!important;
+           color:white;
     th,td
       text-align center
       .cell
