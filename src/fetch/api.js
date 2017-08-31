@@ -77,7 +77,13 @@ export default {
       return fetch('/limitDetail', params)
     },
     /**
-     * 项目状态列表
+     * 项目列表
+     */
+    GetProjects(params) {
+        return fetch('/projects', params)
+    },
+    /**
+     * 项目状态列表   
      */
     GetProjectStatus(params) {
       return fetch('/project_status', params)
