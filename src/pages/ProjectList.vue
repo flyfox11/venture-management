@@ -1,9 +1,13 @@
 <template>
   <div class="wrapper">
     <!--项目列表页面-->
-    <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
+    <el-tabs v-model="activeTab" type="card">
       <el-tab-pane label="项目查询" name="first">
-          <el-table :data="tableData" border stripe style="width: 100%" highlight-current-row empty-text="数据空空" height="400" @current-change="handleRowChange">
+        <div class="edit_field">
+          <el-button type="success" icon="plus" @click="handleAdd">新增</el-button>
+          <el-button type="success" icon="edit" @click="handleEdit">修改</el-button>
+        </div>
+        <el-table :data="tableData" border stripe style="width: 100%" highlight-current-row empty-text="数据空空" height="400" @current-change="handleRowChange">
             <el-table-column label="序号" width="65">
                 <template scope="scope">
                     <span>{{page_size*(current_page-1)+scope.$index+1}}</span>
@@ -23,15 +27,15 @@
           </el-table>
         <div class="block">
           <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="current_page"
-            :page-sizes="[6,10,15]"
-            :page-size="page_size"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="total">
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="current_page"
+                  :page-sizes="[6,10,15]"
+                  :page-size="page_size"
+                  layout="total, sizes, prev, pager, next, jumper"
+                  :total="total">
           </el-pagination>
-        </div>
+      </div>
       </el-tab-pane>
 
     </el-tabs>
@@ -54,8 +58,12 @@
           }
       },
       methods:{
-        handleClick(tab, event) {
-          //console.log(tab, event);
+        handleAdd() {
+            this.$router.push('/projectDetail/add');
+//            this.$router.push({path:'/projectDetail',params:{action_flag:'add'}});
+        },
+        handleEdit() {
+            alert('编辑')
         },
         handleSizeChange(val) {
           this.page_size=val;
@@ -66,7 +74,6 @@
           this._getData(this.current_page,this.page_size);
         },
         handleRowChange(val) {
-            //console.log('地方大幅度',val)
           //this.currentRow = val;
         },
         _getData(current_page,page_size){
@@ -99,6 +106,9 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
+  .edit_field
+      float: right
+      margin: 0 0 10px
   .el-table
     .el-table__body
       tr

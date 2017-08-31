@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from 'pages/Login'
 import ProjectManager from 'pages/ProjectManager'
 import ProjectList from 'pages/ProjectList'
+import ProjectDetail from 'pages/ProjectDetail'
 import LimitManager from 'pages/LimitManager'
 import LimitList from 'pages/LimitList'
 import LimitDetail from 'pages/LimitDetail'
@@ -36,6 +37,10 @@ export default new Router({
         {
           path:'/projectList',
           component:ProjectList
+        },
+        {
+          path:'/projectDetail/:flag',
+          component: ProjectDetail
         },
         {
           path: '/limit',
