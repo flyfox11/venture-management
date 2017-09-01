@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
     <!--项目列表页面-->
-    <el-tabs v-model="activeTab" type="card">
-      <el-tab-pane label="项目查询" name="first">
-        <div class="edit_field">
+      <div class="edit_field">
           <el-button type="success" icon="plus" @click="handleAdd">新增</el-button>
           <el-button type="success" icon="edit" @click="handleEdit">修改</el-button>
-        </div>
+      </div>
+    <el-tabs v-model="activeTab" type="card">
+      <el-tab-pane label="项目查询" name="first">
         <el-table :data="tableData" border stripe style="width: 100%" highlight-current-row empty-text="数据空空" height="400" @current-change="handleRowChange">
             <el-table-column label="序号" width="65">
                 <template scope="scope">
@@ -55,15 +55,21 @@
             total:0,
             page_size:10,
             current_page:1,
+            project_no:''
           }
       },
       methods:{
         handleAdd() {
             this.$router.push('/projectDetail/add');
-//            this.$router.push({path:'/projectDetail',params:{action_flag:'add'}});
         },
         handleEdit() {
-            alert('编辑')
+            if(!this.project_no){
+                this.$alert('请选择一条记录', '提示', {
+                    confirmButtonText: '确定'
+                });
+                return;
+            }
+            this.$router.push({path:'/projectDetail/edit',query:{project_no:this.project_no}});
         },
         handleSizeChange(val) {
           this.page_size=val;
@@ -74,7 +80,7 @@
           this._getData(this.current_page,this.page_size);
         },
         handleRowChange(val) {
-          //this.currentRow = val;
+            this.project_no=val.project.project_no;
         },
         _getData(current_page,page_size){
           api.GetProjects({current_page,page_size,...this.$route.query})
@@ -109,6 +115,8 @@
   .edit_field
       float: right
       margin: 0 0 10px
+      position:relative
+      z-index:1
   .el-table
     .el-table__body
       tr

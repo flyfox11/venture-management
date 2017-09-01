@@ -74,7 +74,7 @@ export default {
      * 额度详情
      */
     GetLimitDetail(params) {
-      return fetch('/limitDetail', params)
+      return fetch('/limit_detail', params)
     },
     /**
      * 项目列表
@@ -83,10 +83,34 @@ export default {
         return fetch('/projects', params)
     },
     /**
-     * 项目状态列表   
+     * 新增项目
+     */
+    AddProject(params) {
+        return fetch('/add_project', params)
+    },
+    /**
+     * 查询单个项目
+     */
+    GetProject(params) {
+        return fetch('/get_project', params)
+    },
+    /**
+     * 修改项目
+     */
+    UpdateProject(params) {
+        return fetch('/update_project', params)
+    },
+    /**
+     * 项目状态列表
      */
     GetProjectStatus(params) {
       return fetch('/project_status', params)
     },
-    
+    /**
+     * 合作渠道列表
+     */
+    GetChannelStatus(params) {
+        return fetch('/channel_status', params)
+    },
+
 }

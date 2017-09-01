@@ -84,7 +84,6 @@
         },
         methods:{
             onSubmit() {
-                /*this.$message.success('提交成功！');*/
               this.$router.push({path:'/limitList',query:this.form});
             },
             onReset(){
@@ -94,6 +93,7 @@
                     channel:'',
                     limit_status:'',
                 }
+                //this.$refs.form.resetFields(); 这种重置方法不行，只能在表单验证中使用
             }
         }
 

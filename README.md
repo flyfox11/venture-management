@@ -48,6 +48,10 @@ nodejs + express4 + session + sequelize + mysql + lodash.js
 ### 图3
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/3.png)
 
+
+### 图4
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/4.png)
+
 ## 项目运行
 
 ``` bash
