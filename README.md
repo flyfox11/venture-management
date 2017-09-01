@@ -40,17 +40,17 @@ nodejs + express4 + session + sequelize + mysql + lodash.js
 ### 图1
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/1.png)
 
-
 ### 图2
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/2.png)
-
 
 ### 图3
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/3.png)
 
-
 ### 图4
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/4.png)
+
+### 图5
+![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/5.png)
 
 ## 项目运行
 
