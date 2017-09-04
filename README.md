@@ -64,11 +64,3 @@ npm run dev
 # 启动node后端项目(http://localhost:8081/...)
 npm run start
 
-<h1>哈哈</h1>
-```<ul>
-  <li>Yui哦</li>
-  <li>客家人</li>
-  <li>能恢复的</li>
-  <li>真是的任天野</li>
-</ul>```
-
