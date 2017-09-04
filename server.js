@@ -4,6 +4,7 @@
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var path=require('path');
 const router=require('./server/routes');
 var http = require('http');
 var app = express();
@@ -24,8 +25,13 @@ app.use(session({
     name: 'vue-project'
   }
 ));
+/**  将vue代码打包（npm run build）后，静态资源放至node服务器访问，解决HTML5 History 模式的问题
+app.use(require('connect-history-api-fallback')());
+app.use(express.static(path.join('dist')));
+*/
 // 将路由用至应用程式
 app.use('/api/v1', router);
+
 var httpServer = http.createServer(app);
 httpServer.listen(port, '0.0.0.0', function () {
   console.log('Vue BackEnd Server is running on: http://%s:%s', 'localhost', port);
