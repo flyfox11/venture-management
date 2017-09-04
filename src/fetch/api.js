@@ -5,6 +5,7 @@ import qs from 'qs'
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = 'http://localhost:8080/api/v1';
+axios.defaults.headers.common['Authorization'] = 'xiaodingding';
 
 /*
 * 请求、响应拦截器

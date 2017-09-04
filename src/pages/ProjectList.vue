@@ -10,7 +10,7 @@
         <el-table :data="tableData" border stripe style="width: 100%" highlight-current-row empty-text="数据空空" height="400" @current-change="handleRowChange">
             <el-table-column label="序号" width="65">
                 <template scope="scope">
-                    <span>{{page_size*(current_page-1)+scope.$index+1}}</span>
+                    <span>{{(page_size*(current_page-1)+scope.$index+1)|formatIndex1}}</span>
                 </template>
             </el-table-column>
             <el-table-column prop="project.project_name" label="项目名称"></el-table-column>
