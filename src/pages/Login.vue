@@ -19,13 +19,13 @@
             <form id="defaultForm"  class="form-horizontal">
               <div class="form-group">
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="userName" name="real_name" v-model="user.name" placeholder="用户名"/>
+                  <input type="text" class="form-control" id="userName" name="real_name" v-model="user.name" @keyup.enter="loginAction" placeholder="用户名"/>
                   <span class="help-block" id="userNameMessage"/>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-lg-12">
-                  <input type="password" class="form-control" id="password" name="pwd" v-model="user.password" placeholder="密码"/>
+                  <input type="password" class="form-control" id="password" name="pwd" v-model="user.password"  @keyup.enter="loginAction" placeholder="密码"/>
                   <span class="help-block passwordMessage"/>
                 </div>
               </div>

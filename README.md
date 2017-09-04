@@ -13,7 +13,7 @@ nodejs + express4 + session + sequelize + mysql + lodash.js
 	|-- build                            // webpack配置文件
 	|-- config                           // 项目打包路径
 	|-- screenshots                      // 效果图截屏
-	|-- server                           // node后端代码
+	|-- server                           // express后端，用于提供Api
 	|-- src                              // 源码目录
 	|   |-- assets                       // 资源文件
 	|   |-- components                   // 公共组件
@@ -32,7 +32,7 @@ nodejs + express4 + session + sequelize + mysql + lodash.js
 	|-- index.html                       // 入口html文件
 	|-- package.json                     // 项目及工具的依赖配置文件
 	|-- server.js                        // node server入口文件
-    |-- README.md                        // 说明
+  |-- README.md                        // 说明
 
 ## 效果演示
 
@@ -64,5 +64,11 @@ npm run dev
 # 启动node后端项目(http://localhost:8081/...)
 npm run start
 
-
+#测试
+<ul>
+  <li>Yui哦</li>
+  <li>客家人</li>
+  <li>能恢复的</li>
+  <li>真是的任天野</li>
+</ul>
 

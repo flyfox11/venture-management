@@ -104,7 +104,7 @@
     .query_container
         padding-top: 50px
         .el-form-item
-            margin: 30px auto;
+            margin: 30px auto
             width: 400px
             .el-select
                 width: 320px
