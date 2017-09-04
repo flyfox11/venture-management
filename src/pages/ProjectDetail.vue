@@ -61,6 +61,13 @@
     let act_flag;
     export default {
       data(){
+        var checkDate = (rule, value, callback) => {  //自定义日期校验规则
+          if (!value) {
+            return callback(new Error(rule.message));
+          }else{
+            callback();
+          }
+        };
         return {
           form: {
             channel: '',
@@ -95,7 +102,8 @@
               { required: true, message: '请输入项目名称', trigger: 'blur' }
             ],
             project_line_time: [
-              { required: true, required: true, message: '请选择上线时间', trigger: 'change' }
+              /*{ required: true,type: 'date',  message: '请选择上线时间', trigger: 'change' }*/
+              { validator: checkDate, message: '请选择上线时间', trigger: 'change' }
             ],
             project_status: [
               { required: true, message: '请选择项目状态', trigger: 'change' }
@@ -104,7 +112,8 @@
               { required: true, message: '请输入项目批准额度', trigger: 'blur' }
             ],
             project_down_time: [
-              { required: true, required: true, message: '请选择终止时间', trigger: 'change' }
+//              { required: true,type: '',  message: '请选择终止时间', trigger: 'change' }
+              { validator: checkDate, message: '请选择终止时间', trigger: 'change' }
             ],
             project_available_credit: [
               { required: true, message: '请输入项目可用额度', trigger: 'blur' }
