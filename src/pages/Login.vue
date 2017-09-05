@@ -35,6 +35,7 @@
                 <div class="form-group text-center">
                   <div class="text-center">
                     <button type="button" class="btn btn-primary" @click="loginAction">登录</button>
+                    <button type="button" class="btn btn-primary btn_reg" @click="registerAction">注册</button>
                   </div>
                   <br>
                 </div>
@@ -80,13 +81,16 @@
           .catch(error => {
             console.log(error)
           })
+      },
+      registerAction:function () {
+        window.location='http://localhost:8080/register';
       }
     }
 
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import '../../static/bootstrap/css/paper-dashboard.css';
   @import '../../static/bootstrap/css/bootstrap.min.css';
   #app
@@ -102,4 +106,8 @@
           .form-horizontal
             width: 400px
             margin-left: 75px
+            .btn-primary
+              width: 80px;
+              &.btn_reg
+                margin-left: 16px
 </style>

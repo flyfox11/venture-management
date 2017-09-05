@@ -6,7 +6,7 @@
 * ### 前端技术
 vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 * ### 后端技术
-node.js + express4 + session + sequelize + mysql + lodash.js
+node.js + express4 + session + sequelize + mysql + lodash.js + bcrypt
 
 ## 目录结构介绍 ##
 	|-- build                            // webpack配置文件
@@ -48,8 +48,6 @@ node.js + express4 + session + sequelize + mysql + lodash.js
 ### 图4
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/4.png)
 
-### 图5
-![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/5.png)
 
 ## 项目运行
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from 'pages/Login'
+import Register from 'pages/Register'
 import ProjectManager from 'pages/ProjectManager'
 import ProjectList from 'pages/ProjectList'
 import ProjectDetail from 'pages/ProjectDetail'
@@ -22,6 +23,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     },
     {
       path: '/readme',

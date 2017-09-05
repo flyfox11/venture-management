@@ -60,6 +60,12 @@ export default {
       return fetch('/login', params)
     },
     /**
+     * 用户注册
+     */
+    Register(params) {
+      return fetch('/register', params)
+    },
+    /**
      * 额度查询页面，下拉列表
      */
     GetLimitManager(params) {

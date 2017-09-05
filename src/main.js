@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {//注册一个全局导航钩子
     case '/limitDetail/limit':     next('/limit');   break;
     default:next();
   }
-})
+});
 Vue.use(ElementUI);
 new Vue({
   el: '#app',
