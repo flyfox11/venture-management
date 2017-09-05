@@ -40,7 +40,8 @@
         methods:{
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
+                    localStorage.removeItem('ms_username');
+                    sessionStorage.clear();
                     /*this.$router.push('/login');*/
                     window.location='http://localhost:8080/';
                 }

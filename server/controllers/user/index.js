@@ -2,6 +2,7 @@
  * Created by 胡志甫 on 2017/8/15.
  */
 const bcrypt=require("bcrypt-nodejs");
+const jwt=require("jsonwebtoken");
 const _model=require('../../models/action');
 const userSequelize=require('../../models/index').control_user;
 module.exports = {
@@ -31,7 +32,11 @@ module.exports = {
       if (!!user) {
         if(bcrypt.compareSync(req.body.password, user.password)){
         // if (req.body.password === user.password) {
+          var token = jwt.sign({name:user.name}, req.session.secret, {
+            expiresIn: 60*60*24
+          })
           body.result=user;
+          body.token=token;
         } else {
           body.code='02';
           body.result='密码输入有误';

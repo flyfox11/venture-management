@@ -80,7 +80,7 @@
 
     }
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 
     .query_container
         padding-top: 50px

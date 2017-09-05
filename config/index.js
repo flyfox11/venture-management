@@ -47,6 +47,7 @@ module.exports = {
       db: "loan-dev",
       username: "root",
       password: "Yuandong@4444"
-    }
+    },
+    secret:"venture"
   }
 }

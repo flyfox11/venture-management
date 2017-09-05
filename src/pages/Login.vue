@@ -70,8 +70,9 @@
             //this.msg=res.result;
             if(res.code=='01'){
               /*this.$router.replace('/readme');*/
-              window.location='http://localhost:8080/readme/';
               localStorage.setItem('ms_username',res.result.crealname);
+              sessionStorage.setItem('venture-token',res.token);
+              window.location='http://localhost:8080/readme/';
             }else{
               this.$alert(res.result, '提示', {
                 confirmButtonText: '确定'
