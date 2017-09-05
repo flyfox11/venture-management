@@ -5,11 +5,10 @@
 ## 技术栈
 * ### 前端技术
 vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
-* ### node技术
-nodejs + express4 + session + sequelize + mysql + lodash.js
+* ### 后端技术
+node.js + express4 + session + sequelize + mysql + lodash.js
 
 ## 目录结构介绍 ##
-
 	|-- build                            // webpack配置文件
 	|-- config                           // 项目打包路径
 	|-- screenshots                      // 效果图截屏
@@ -32,10 +31,10 @@ nodejs + express4 + session + sequelize + mysql + lodash.js
 	|-- index.html                       // 入口html文件
 	|-- package.json                     // 项目及工具的依赖配置文件
 	|-- server.js                        // node server入口文件
-  |-- README.md                        // 说明
+	|-- README.md                        // 说明
+
 
 ## 效果演示
-
 
 ### 图1
 ![image](https://github.com/zhuangyanyan/my-vue/raw/master/screenshots/1.png)
