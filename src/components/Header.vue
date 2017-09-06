@@ -9,6 +9,7 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="loginout">退出</el-dropdown-item>
+                    <el-dropdown-item command="withdraw">注销</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -19,6 +20,7 @@
     import "../../static/css/main.css";
     import "../../static/css/theme-green/color-purple.css";   /*紫色主题*/
     import { mapGetters } from 'vuex';
+    import api from 'fetch/api';
     export default {
         data() {
             return {
@@ -44,6 +46,26 @@
                     sessionStorage.clear();
                     /*this.$router.push('/login');*/
                     window.location='http://localhost:8080/';
+                }else if(command == 'withdraw'){
+                  api.Withdraw({crealname:localStorage.getItem('ms_username')})
+                    .then(res => {
+                      if(res.code=='01'){
+                        this.$alert('注销成功', '提示', {
+                          confirmButtonText: '确定'
+                        });
+                        localStorage.removeItem('ms_username');
+                        sessionStorage.clear();
+                        window.location='http://localhost:8080/';
+                      }else{
+                        this.$alert('注销失败', '提示', {
+                          confirmButtonText: '确定'
+                        });
+                      }
+                    })
+                    .catch(error => {
+                      console.log(error)
+                    })
+
                 }
             }
         }

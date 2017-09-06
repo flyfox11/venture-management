@@ -112,6 +112,9 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
+  .el-message-box__close
+     top: 0px
+     right: 0px
   .edit_field
       float: right
       margin: 0 0 10px

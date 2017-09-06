@@ -69,10 +69,16 @@ export default {
       return fetch('/login', params)
     },
     /**
-     * 用户注册
+     * 用户注册 
      */
     Register(params) {
       return fetch('/register', params)
+    },
+    /**
+     * 用户注销
+     */
+    Withdraw(params) {
+      return fetch('/withdraw', params)
     },
     /**
      * 额度查询页面，下拉列表

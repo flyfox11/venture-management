@@ -63,5 +63,17 @@ module.exports = {
     }finally {
       res.json(body);
     }
-  }
+  },
+  withdraw:  async function (req, res) {
+    var body={code:'01',result:''};
+    try{
+      var result=await _model.deleteAll(userSequelize,{where:{crealname:req.body.crealname}});
+      body.result=result;
+    }catch (e) {
+      body.code='02';
+      body.result=e.message;
+    }finally {
+      res.json(body);
+    }
+  },
 }
