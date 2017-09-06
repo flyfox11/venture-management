@@ -59,7 +59,12 @@
         msg:''
       }
     },
-    computed:{
+    created(){
+      if(this.$route.query.no_token){
+        this.$alert('无令牌', '提示', {
+          confirmButtonText: '确定'
+        });
+      }
     },
     methods:{
       loginAction:function () {
@@ -72,7 +77,7 @@
               /*this.$router.replace('/readme');*/
               localStorage.setItem('ms_username',res.result.crealname);
               sessionStorage.setItem('venture-token',res.token);
-              window.location='http://localhost:8080/readme/';
+              window.location='http://localhost:8080/home/';
             }else{
               this.$alert(res.result, '提示', {
                 confirmButtonText: '确定'

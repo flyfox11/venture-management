@@ -30,7 +30,7 @@ export default new Router({
       component: Register
     },
     {
-      path: '/readme',
+      path: '/home',
       component: resolve => require(['../components/Home.vue'], resolve),
       children:[
         { path: '/',

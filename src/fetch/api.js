@@ -1,6 +1,5 @@
 import axios from 'axios'
 import qs from 'qs'
-
 // axios 配置
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -32,6 +31,10 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use((res) =>{
     if(res.status!==200){
         return Promise.reject(res);
+    }
+    if(res.data.code=='03'){  //无token
+      window.location='http://localhost:8080/login?no_token=1';
+      return;
     }
     return res;
 }, (error) => {
