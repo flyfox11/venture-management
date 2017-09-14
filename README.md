@@ -8,6 +8,16 @@ vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + element-ui
 * ### 后端技术
 node.js + express4 + session + sequelize + mysql + lodash.js + bcrypt + jwt
 
+## 实现功能
+- [x] 登陆 -- 完成
+- [x] 注册 -- 完成
+- [x] 项目/额度条件查询 -- 完成
+- [x] 列表展示及分页 -- 完成
+- [x] 添加/修改项目 -- 完成
+- [x] 额度详情页 -- 完成
+- [x] 用户注销 -- 完成
+- [x] 登出 -- 完成
+
 ## 目录结构介绍 ##
 	|-- build                            // webpack配置文件
 	|-- config                           // 项目打包路径
