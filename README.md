@@ -2,7 +2,7 @@
 
 > A Vue.js project for vue.js and node.js,related to vuex,vue-router,express4,sequelize,stylus,axios,etc .
 
-##项目说明
+## 项目说明
 
 风险管理系统是我业余时间开发的项目，是一个简单的入门级项目。说简单是因为实现的页面和功能简单，不代表用的技术简单(对于初级前端来说)。
 
