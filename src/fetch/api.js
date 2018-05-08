@@ -4,7 +4,7 @@ import qs from 'qs'
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = 'http://localhost:8080/api/v1';
-// axios.defaults.headers.common['x-access-token'] = 'xiaodingding';
+// axios.defaults.headers.common['Authorization'] = 'Basic ';
 
 /*
 * 请求、响应拦截器
@@ -16,7 +16,7 @@ axios.interceptors.request.use((config) => {
 
         let token=sessionStorage.getItem('venture-token');
         if(token){
-          // axios.defaults.headers.common['x-access-token'] =token;
+          // axios.defaults.headers.common['Authorization'] +=token;
           config.data=config.data||{};
           config.data.token=token;
         }
